@@ -1,10 +1,13 @@
 import RPi.GPIO as GPIO
+from time import sleep
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
 class motors:
     def __init__(self):
         print "Setting motor parameters!"
+        #run continuous factor
+        self.maxDuty=None
         #motor one
         self.Motor1A = 37
         self.Motor1B = 38
@@ -41,7 +44,10 @@ class motors:
         
 
     #BEGIN METHODS#
-    
+
+    #cleanup method
+    def clean(self):
+        GPIO.cleanup()
 
     def motorOneOn(self):
         print "Motor 1 on"
@@ -76,4 +82,17 @@ class motors:
     def motorFourOff(self):
         print "Motor 4 off"
         GPIO.output(self.Motor4E, GPIO.LOW)
+    #Begin pulse methods
+    def motorOneP(self,duty):
+        print "\nMotor 1 pulsing at freq: " + str(duty)
+        GPIO.output(self.Motor1A, GPIO.HIGH)
+        GPIO.output(self.Motor1B, GPIO.LOW)
+        GPIO.output(self.Motor1E, GPIO.HIGH)
+        #time spent on
+        sleep(self.maxDuty-duty)
+        GPIO.output(self.Motor1E, GPIO.LOW)
+        #time spent off
+        sleep(duty)
+    
+    
 
