@@ -1,75 +1,79 @@
-class Motors:
-    def __init__():
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+
+class motors:
+    def __init__(self):
         print "Setting motor parameters!"
         #motor one
-        Motor1A = 37
-        Motor1B = 38
-        Motor1E = 40
+        self.Motor1A = 37
+        self.Motor1B = 38
+        self.Motor1E = 40
         #motor two
-        Motor2A = 33
-        Motor2B = 35
-        Motor2E = 36
+        self.Motor2A = 33
+        self.Motor2B = 35
+        self.Motor2E = 36
         #motor 3
-        Motor3A = 29
-        Motor3B = 31
-        Motor3E = 32
+        self.Motor3A = 29
+        self.Motor3B = 31
+        self.Motor3E = 32
         #motor 4
-        Motor4A = 15
-        Motor4B = 16
-        Motor4E = 18
+        self.Motor4A = 11
+        self.Motor4B = 13
+        self.Motor4E = 15
         #set up outpins
-        GPIO.setup(Motor1A, GPIO.OUT)
-        GPIO.setup(Motor1B, GPIO.OUT)
-        GPIO.setup(Motor1E, GPIO.OUT)
+        GPIO.setup(self.Motor1A, GPIO.OUT)
+        GPIO.setup(self.Motor1B, GPIO.OUT)
+        GPIO.setup(self.Motor1E, GPIO.OUT)
 
-        GPIO.setup(Motor2A, GPIO.OUT)
-        GPIO.setup(Motor2B, GPIO.OUT)
-        GPIO.setup(Motor2E, GPIO.OUT)
+        GPIO.setup(self.Motor2A, GPIO.OUT)
+        GPIO.setup(self.Motor2B, GPIO.OUT)
+        GPIO.setup(self.Motor2E, GPIO.OUT)
 
-        GPIO.setup(Motor3A, GPIO.OUT)
-        GPIO.setup(Motor3B, GPIO.OUT)
-        GPIO.setup(Motor3E, GPIO.OUT)
+        GPIO.setup(self.Motor3A, GPIO.OUT)
+        GPIO.setup(self.Motor3B, GPIO.OUT)
+        GPIO.setup(self.Motor3E, GPIO.OUT)
 
-        GPIO.setup(Motor4A, GPIO.OUT)
-        GPIO.setup(Motor4B, GPIO.OUT)
-        GPIO.setup(Motor4E, GPIO.OUT)
+        GPIO.setup(self.Motor4A, GPIO.OUT)
+        GPIO.setup(self.Motor4B, GPIO.OUT)
+        GPIO.setup(self.Motor4E, GPIO.OUT)
 
         
 
     #BEGIN METHODS#
     
 
-    def motorOneOn():
+    def motorOneOn(self):
         print "Motor 1 on"
-        GPIO.output(Motor1A, GPIO.HIGH)
-        GPIO.output(Motor1B, GPIO.LOW)
-        GPIO.output(Motor1E, GPIO.HIGH)
-    def motorTwoOn():
+        GPIO.output(self.Motor1A, GPIO.HIGH)
+        GPIO.output(self.Motor1B, GPIO.LOW)
+        GPIO.output(self.Motor1E, GPIO.HIGH)
+    def motorTwoOn(self):
         print "Motor 2 on"
-        GPIO.output(Motor2A, GPIO.HIGH)
-        GPIO.output(Motor2B, GPIO.LOW)
-        GPIO.output(Motor2E, GPIO.HIGH)
-    def motorThreeOn():
+        GPIO.output(self.Motor2A, GPIO.HIGH)
+        GPIO.output(self.Motor2B, GPIO.LOW)
+        GPIO.output(self.Motor2E, GPIO.HIGH)
+    def motorThreeOn(self):
         print "Motor 3 on"
-        GPIO.output(Motor3A, GPIO.HIGH)
-        GPIO.output(Motor3B, GPIO.LOW)
-        GPIO.output(Motor3E, GPIO.HIGH)
-    def motorFourOn():
+        GPIO.output(self.Motor3A, GPIO.HIGH)
+        GPIO.output(self.Motor3B, GPIO.LOW)
+        GPIO.output(self.Motor3E, GPIO.HIGH)
+    def motorFourOn(self):
         print "Motor 4 on"
-        GPIO.output(Motor4A, GPIO.HIGH)
-        GPIO.output(Motor4B, GPIO.LOW)
-        GPIO.output(Motor4E, GPIO.HIGH)
+        GPIO.output(self.Motor4A, GPIO.HIGH)
+        GPIO.output(self.Motor4B, GPIO.LOW)
+        GPIO.output(self.Motor4E, GPIO.HIGH)
 
-    def motorOneOff():
+    def motorOneOff(self):
         print "Motor 1 off"
-        GPIO.output(Motor1E, GPIO.LOW)
-    def motorTwoOff():
+        GPIO.output(self.Motor1E, GPIO.LOW)
+    def motorTwoOff(self):
         print "Motor 2 off"
-        GPIO.output(Motor2E, GPIO.LOW)
-    def motorThreeOff():
+        GPIO.output(self.Motor2E, GPIO.LOW)
+    def motorThreeOff(self):
         print "Motor 3 off"
-        GPIO.output(Motor3E, GPIO.LOW)
-    def motorFourOff():
+        GPIO.output(self.Motor3E, GPIO.LOW)
+    def motorFourOff(self):
         print "Motor 4 off"
-        GPIO.output(Motor4E, GPIO.LOW)
+        GPIO.output(self.Motor4E, GPIO.LOW)
 
