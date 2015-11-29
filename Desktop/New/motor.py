@@ -84,7 +84,7 @@ class motors:
         GPIO.output(self.Motor4E, GPIO.LOW)
     #Begin pulse methods
     def motorOneP(self,duty):
-        print "\nMotor 1 pulsing at freq: " + str(duty)
+        print "\nMotor 1 pulsing at freq: " + str(duty) + "\n"
         GPIO.output(self.Motor1A, GPIO.HIGH)
         GPIO.output(self.Motor1B, GPIO.LOW)
         GPIO.output(self.Motor1E, GPIO.HIGH)
@@ -93,6 +93,38 @@ class motors:
         GPIO.output(self.Motor1E, GPIO.LOW)
         #time spent off
         sleep(duty)
-    
+
+    def motorTwoP(self,duty2):
+        print "\nMotor 2 pulsing at freq: " + str(duty2) + "\n"
+        GPIO.output(self.Motor2A, GPIO.HIGH)
+        GPIO.output(self.Motor2B, GPIO.LOW)
+        GPIO.output(self.Motor2E, GPIO.HIGH)
+        #time spent on
+        sleep(self.maxDuty-duty2)
+        GPIO.output(self.Motor2E, GPIO.LOW)
+        #time spent off
+        sleep(duty2)
+        
+    def motorThreeP(self,duty3):
+        print "\nMotor 3 pulsing at freq: " + str(duty3) + "\n"
+        GPIO.output(self.Motor3A, GPIO.HIGH)
+        GPIO.output(self.Motor3B, GPIO.LOW)
+        GPIO.output(self.Motor3E, GPIO.HIGH)
+        #time spent on
+        sleep(self.maxDuty-duty3)
+        GPIO.output(self.Motor3E, GPIO.LOW)
+        #time spent off
+        sleep(duty3)
+
+    def motorFourP(self,duty4):
+        print "\nMotor 3 pulsing at freq: " + str(duty4) + "\n"
+        GPIO.output(self.Motor4A, GPIO.HIGH)
+        GPIO.output(self.Motor4B, GPIO.LOW)
+        GPIO.output(self.Motor4E, GPIO.HIGH)
+        #time spent on
+        sleep(self.maxDuty-duty4)
+        GPIO.output(self.Motor4E, GPIO.LOW)
+        #time spent off
+        sleep(duty4)
     
 
