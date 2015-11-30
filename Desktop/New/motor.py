@@ -3,9 +3,11 @@ from time import sleep
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
+
+
 class motors:
     def __init__(self):
-        print "Setting motor parameters!"
+        print ("Setting motor parameters!")
         #run continuous factor
         self.maxDuty=None
         self.increment=None
@@ -94,51 +96,56 @@ class motors:
         GPIO.output(self.Motor4E, GPIO.LOW)
     #Begin pulse methods
     def motorOneP(self):
-        print ("\nMotor 1 pulsing at freq: " + str(self.duty) + "\n")
-        GPIO.output(self.Motor1A, GPIO.HIGH)
-        GPIO.output(self.Motor1B, GPIO.LOW)
-        GPIO.output(self.Motor1E, GPIO.HIGH)
-        #time spent on
-        sleep(self.maxDuty-self.duty)
-        GPIO.output(self.Motor1E, GPIO.LOW)
-        #time spent off
-        sleep(self.duty)
+        print ("1on")
+        while True:
+            GPIO.output(self.Motor1A, GPIO.HIGH)
+            GPIO.output(self.Motor1B, GPIO.LOW)
+            GPIO.output(self.Motor1E, GPIO.HIGH)
+            #time spent on
+            sleep(self.maxDuty-self.duty)
+            GPIO.output(self.Motor1E, GPIO.LOW)
+            #time spent off
+            sleep(self.duty)
+            print ("loop1")
 
     def motorTwoP(self):
-        print ("\nMotor 2 pulsing at freq: " + str(self.duty2) + "\n")
-        GPIO.output(self.Motor2A, GPIO.HIGH)
-        GPIO.output(self.Motor2B, GPIO.LOW)
-        GPIO.output(self.Motor2E, GPIO.HIGH)
-        #time spent on
-        sleep(self.maxDuty-self.duty2)
-        GPIO.output(self.Motor2E, GPIO.LOW)
-        #time spent off
-        sleep(self.duty2)
+        print ("2on")
+        while True:
+            GPIO.output(self.Motor2A, GPIO.HIGH)
+            GPIO.output(self.Motor2B, GPIO.LOW)
+            GPIO.output(self.Motor2E, GPIO.HIGH)
+            #time spent on
+            sleep(self.maxDuty-self.duty2)
+            GPIO.output(self.Motor2E, GPIO.LOW)
+            #time spent off
+            sleep(self.duty2)
+            print ("loop2")
         
     def motorThreeP(self):
-        print ("\nMotor 3 pulsing at freq: " + str(self.duty3) + "\n")
-        GPIO.output(self.Motor3A, GPIO.HIGH)
-        GPIO.output(self.Motor3B, GPIO.LOW)
-        GPIO.output(self.Motor3E, GPIO.HIGH)
-        #time spent on
-        sleep(self.maxDuty-self.duty3)
-        GPIO.output(self.Motor3E, GPIO.LOW)
-        #time spent off
-        sleep(self.duty3)
+        while True:
+            GPIO.output(self.Motor3A, GPIO.HIGH)
+            GPIO.output(self.Motor3B, GPIO.LOW)
+            GPIO.output(self.Motor3E, GPIO.HIGH)
+            #time spent on
+            sleep(self.maxDuty-self.duty3)
+            GPIO.output(self.Motor3E, GPIO.LOW)
+            #time spent off
+            sleep(self.duty3)
 
     def motorFourP(self):
-        print ("\nMotor 3 pulsing at freq: " + str(self.duty4) + "\n")
-        GPIO.output(self.Motor4A, GPIO.HIGH)
-        GPIO.output(self.Motor4B, GPIO.LOW)
-        GPIO.output(self.Motor4E, GPIO.HIGH)
-        #time spent on
-        sleep(self.maxDuty-self.duty4)
-        GPIO.output(self.Motor4E, GPIO.LOW)
-        #time spent off
-        sleep(self.duty4)
+        while True:
+            GPIO.output(self.Motor4A, GPIO.HIGH)
+            GPIO.output(self.Motor4B, GPIO.LOW)
+            GPIO.output(self.Motor4E, GPIO.HIGH)
+            #time spent on
+            sleep(self.maxDuty-self.duty4)
+            GPIO.output(self.Motor4E, GPIO.LOW)
+            #time spent off
+            sleep(self.duty4)
 
 #input decoder experiemental
-    def keyInDecoder(self, keyPress):
+    def keyInDecoder(self,keyPress):
+        
         if (keyPress==119):
             self.duty += self.increment
             #duty cannot be greater than period
