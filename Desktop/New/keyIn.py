@@ -21,6 +21,10 @@ duty3=maxDuty
 duty4=maxDuty
 motorUnit.maxDuty=duty
 increment=0.0015
+
+
+
+
 #press w to decel
 #press s to accel
 while (userInput != 27):
@@ -77,10 +81,10 @@ while (userInput != 27):
             duty4 = 0
             
     #call the motor pulse methods        
-    motorUnit.motorOneP(duty)
-    motorUnit.motorTwoP(duty2)
-    motorUnit.motorThreeP(duty3)
-    motorUnit.motorFourP(duty4)
+    motorUnit.motorOneP()
+    motorUnit.motorTwoP()
+    motorUnit.motorThreeP()
+    motorUnit.motorFourP()
     
         
         
