@@ -62,41 +62,32 @@ class motors:
         self.duty4=maxD
 
     def motorOneOn(self):
-        print ("Motor 1 on")
         GPIO.output(self.Motor1A, GPIO.HIGH)
         GPIO.output(self.Motor1B, GPIO.LOW)
         GPIO.output(self.Motor1E, GPIO.HIGH)
     def motorTwoOn(self):
-        print ("Motor 2 on")
         GPIO.output(self.Motor2A, GPIO.HIGH)
         GPIO.output(self.Motor2B, GPIO.LOW)
         GPIO.output(self.Motor2E, GPIO.HIGH)
     def motorThreeOn(self):
-        print ("Motor 3 on")
         GPIO.output(self.Motor3A, GPIO.HIGH)
         GPIO.output(self.Motor3B, GPIO.LOW)
         GPIO.output(self.Motor3E, GPIO.HIGH)
     def motorFourOn(self):
-        print ("Motor 4 on")
         GPIO.output(self.Motor4A, GPIO.HIGH)
         GPIO.output(self.Motor4B, GPIO.LOW)
         GPIO.output(self.Motor4E, GPIO.HIGH)
 
     def motorOneOff(self):
-        print ("Motor 1 off")
         GPIO.output(self.Motor1E, GPIO.LOW)
     def motorTwoOff(self):
-        print ("Motor 2 off")
         GPIO.output(self.Motor2E, GPIO.LOW)
     def motorThreeOff(self):
-        print ("Motor 3 off")
         GPIO.output(self.Motor3E, GPIO.LOW)
     def motorFourOff(self):
-        print ("Motor 4 off")
         GPIO.output(self.Motor4E, GPIO.LOW)
     #Begin pulse methods
     def motorOneP(self):
-        print ("1on")
         while True:
             GPIO.output(self.Motor1A, GPIO.HIGH)
             GPIO.output(self.Motor1B, GPIO.LOW)
@@ -106,10 +97,9 @@ class motors:
             GPIO.output(self.Motor1E, GPIO.LOW)
             #time spent off
             sleep(self.duty)
-            print ("loop1")
+            
 
     def motorTwoP(self):
-        print ("2on")
         while True:
             GPIO.output(self.Motor2A, GPIO.HIGH)
             GPIO.output(self.Motor2B, GPIO.LOW)
@@ -119,7 +109,7 @@ class motors:
             GPIO.output(self.Motor2E, GPIO.LOW)
             #time spent off
             sleep(self.duty2)
-            print ("loop2")
+            
         
     def motorThreeP(self):
         while True:
